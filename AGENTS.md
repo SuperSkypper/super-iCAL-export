@@ -22,9 +22,8 @@ Repository: https://github.com/SuperSkypper/super-iCAL-export
 ## Release Artifacts
 
 Releases are created automatically by `.github/workflows/release.yml` when a
-version tag is pushed. It builds the plugin, packages the zip, generates
-attestations, and publishes the release with the top section of `CHANGELOG.md`
-as the release body.
+version tag is pushed. It builds the plugin, generates attestations, and
+publishes the release with the top section of `CHANGELOG.md` as the release body.
 
 To publish a release:
 
@@ -42,7 +41,8 @@ Each release attaches:
 - `manifest.json`
 - `main.js`
 - `styles.css`
-- `super-iCAL-export.zip` (manual-install bundle)
+
+Obsidian ignores any other asset, so do not add extras to the release.
 
 ## Important Conventions
 

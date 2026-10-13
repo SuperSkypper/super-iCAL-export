@@ -11,4 +11,3 @@
 - `obsidian://open` links so calendar entries open the source note.
 - Export progress shown in the status bar.
 - Date-only values become all-day events; date/time values become one-hour timed events.
-- Bundled `super-iCAL-export.zip` for manual installation into `.obsidian/plugins/super-ical-export/`.
