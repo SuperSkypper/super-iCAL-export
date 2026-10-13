@@ -30,12 +30,14 @@ It is designed for workflows where notes represent media releases, shows, deadli
 
 ### Manual
 
-1. Download `manifest.json`, `main.js` and `styles.css` from the
+1. Download `super-iCAL-export.zip` from the
    [latest release](https://github.com/SuperSkypper/super-iCAL-export/releases/latest).
-2. Create the folder `<Vault>/.obsidian/plugins/super-ical-export/`.
-3. Copy the three files into that folder.
-4. Restart Obsidian and enable **Super iCAL Export** under
+2. Extract it into `<Vault>/.obsidian/plugins/super-ical-export/`, so that
+   `main.js`, `manifest.json` and `styles.css` sit directly in that folder.
+3. Restart Obsidian and enable **Super iCAL Export** under
    *Settings → Community plugins*.
+
+You can also download those three files individually from the same release page.
 
 Requires Obsidian **1.4.10** or later.
 
@@ -111,13 +113,15 @@ Then reload Obsidian and enable **Super iCAL Export**.
 
 ### Releasing
 
-Attach these files to each GitHub release:
+Releases are created automatically when a version tag is pushed. Keep
+`versions.json` in sync with the `manifest.json` version, add a
+`# Changelog - vX.Y.Z` section to `CHANGELOG.md`, then push the tag:
 
-- `manifest.json`
-- `main.js`
-- `styles.css`
+```bash
+git push origin 0.0.1
+```
 
-Keep `versions.json` in sync with the `manifest.json` version.
+The tag has to match the `manifest.json` version exactly, with no `v` prefix.
 
 ## Support
 

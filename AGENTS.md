@@ -21,15 +21,28 @@ Repository: https://github.com/SuperSkypper/super-iCAL-export
 
 ## Release Artifacts
 
-Attach these files to each GitHub release:
+Releases are created automatically by `.github/workflows/release.yml` when a
+version tag is pushed. It builds the plugin, packages the zip, generates
+attestations, and publishes the release with the top section of `CHANGELOG.md`
+as the release body.
+
+To publish a release:
+
+1. Add a new `# Changelog - vX.Y.Z` section at the top of `CHANGELOG.md`.
+2. Bump `version` in `package.json` and `manifest.json`, and add the
+   `minAppVersion` entry to `versions.json`.
+3. Commit, then push a tag with no `v` prefix: `git push origin 0.1.0`.
+
+The tag must match the `manifest.json` version exactly, otherwise Obsidian
+cannot resolve the plugin. `manifest.json` requires Obsidian 1.4.10 or later
+because the plugin uses `AbstractInputSuggest`.
+
+Each release attaches:
 
 - `manifest.json`
 - `main.js`
 - `styles.css`
-
-The GitHub tag must match the `manifest.json` version exactly, otherwise Obsidian
-cannot resolve the plugin. `manifest.json` requires Obsidian 1.4.10 or later
-because the plugin uses `AbstractInputSuggest`.
+- `super-iCAL-export.zip` (manual-install bundle)
 
 ## Important Conventions
 
