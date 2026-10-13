@@ -1,6 +1,6 @@
 # Super iCAL Export
 
-[![Release](https://img.shields.io/github/v/release/SuperSkypper/super-ical-export)](https://github.com/SuperSkypper/super-ical-export/releases/latest)
+[![Release](https://img.shields.io/github/v/release/SuperSkypper/super-ical-export)](https://github.com/SuperSkypper/super-iCAL-export/releases/latest)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Min App Version](https://img.shields.io/badge/obsidian-1.4.10%2B-7c3aed)](https://obsidian.md)
 
@@ -31,7 +31,7 @@ It is designed for workflows where notes represent media releases, shows, deadli
 ### Manual
 
 1. Download `manifest.json`, `main.js` and `styles.css` from the
-   [latest release](https://github.com/SuperSkypper/super-ical-export/releases/latest).
+   [latest release](https://github.com/SuperSkypper/super-iCAL-export/releases/latest).
 2. Create the folder `<Vault>/.obsidian/plugins/super-ical-export/`.
 3. Copy the three files into that folder.
 4. Restart Obsidian and enable **Super iCAL Export** under
@@ -122,7 +122,7 @@ Keep `versions.json` in sync with the `manifest.json` version.
 ## Support
 
 Report issues and feature requests at
-[github.com/SuperSkypper/super-ical-export/issues](https://github.com/SuperSkypper/super-ical-export/issues).
+[github.com/SuperSkypper/super-iCAL-export/issues](https://github.com/SuperSkypper/super-iCAL-export/issues).
 
 ## License
 

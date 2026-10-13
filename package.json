@@ -7,11 +7,11 @@
 	"author": "SuperSkypper",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/SuperSkypper/super-ical-export.git"
+		"url": "git+https://github.com/SuperSkypper/super-iCAL-export.git"
 	},
-	"homepage": "https://github.com/SuperSkypper/super-ical-export",
+	"homepage": "https://github.com/SuperSkypper/super-iCAL-export",
 	"bugs": {
-		"url": "https://github.com/SuperSkypper/super-ical-export/issues"
+		"url": "https://github.com/SuperSkypper/super-iCAL-export/issues"
 	},
 	"scripts": {
 		"dev": "node esbuild.config.mjs",

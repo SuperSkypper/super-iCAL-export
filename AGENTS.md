@@ -17,7 +17,7 @@ npm run build
 npm run lint
 ```
 
-Repository: https://github.com/SuperSkypper/super-ical-export
+Repository: https://github.com/SuperSkypper/super-iCAL-export
 
 ## Release Artifacts
 
