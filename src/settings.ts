@@ -41,6 +41,16 @@ export const DEFAULT_SETTINGS: SimpleIcalExportSettings = {
 	developerMode: false
 };
 
+/**
+ * Shape of the declarative setting rows used on Obsidian 1.13.0 and later.
+ * Only `render` is needed here: every row is built by the same imperative
+ * helpers that `display()` uses, so both code paths render an identical UI.
+ */
+type DeclarativeSettingDefinition = {
+	name: string;
+	render: (setting: Setting) => void;
+};
+
 export class SimpleIcalExportSettingTab extends PluginSettingTab {
 	plugin: SimpleIcalExportPlugin;
 
@@ -58,6 +68,53 @@ export class SimpleIcalExportSettingTab extends PluginSettingTab {
 		this.renderCalendarTabs(containerEl);
 		this.renderCalendarSettings(containerEl, activeCalendar);
 		this.renderGlobalSettings(containerEl);
+	}
+
+	/**
+	 * Declarative entry point introduced in Obsidian 1.13.0. When this returns a
+	 * non-empty array Obsidian skips `display()` and renders these rows instead,
+	 * which also makes the settings searchable. `display()` stays as the fallback
+	 * for older Obsidian versions.
+	 *
+	 * Every row delegates to the same helper used by `display()`, so the two
+	 * paths stay in sync and `minAppVersion` does not need to be raised.
+	 */
+	getSettingDefinitions(): DeclarativeSettingDefinition[] {
+		return [
+			{
+				name: 'Calendars',
+				render: (setting) => {
+					this.renderCalendarTabs(setting.settingEl);
+				}
+			},
+			{
+				name: 'Calendar settings',
+				render: (setting) => {
+					this.renderCalendarSettings(setting.controlEl, this.plugin.getActiveCalendarSettings());
+				}
+			},
+			{
+				name: 'General',
+				render: (setting) => {
+					this.renderGlobalSettings(setting.controlEl);
+				}
+			}
+		];
+	}
+
+	/**
+	 * Re-renders the tab on both code paths: `update()` on Obsidian 1.13.0+ where
+	 * `display()` is bypassed, `display()` on older versions.
+	 */
+	private refresh(): void {
+		const declarativeTab = this as PluginSettingTab & {update?: () => void};
+
+		if (typeof declarativeTab.update === 'function') {
+			declarativeTab.update();
+			return;
+		}
+
+		this.display();
 	}
 
 	private renderCalendarTabs(containerEl: HTMLElement): void {
@@ -89,7 +146,7 @@ export class SimpleIcalExportSettingTab extends PluginSettingTab {
 	private async selectCalendar(calendarId: string): Promise<void> {
 		this.plugin.settings.activeCalendarId = calendarId;
 		await this.plugin.saveSettings();
-		this.display();
+		this.refresh();
 	}
 
 	private async addCalendar(): Promise<void> {
@@ -97,7 +154,7 @@ export class SimpleIcalExportSettingTab extends PluginSettingTab {
 		this.plugin.settings.calendars.push(calendar);
 		this.plugin.settings.activeCalendarId = calendar.id;
 		await this.plugin.saveSettings();
-		this.display();
+		this.refresh();
 	}
 
 	private renderCalendarSettings(containerEl: HTMLElement, calendar: IcalCalendarSettings): void {
@@ -120,7 +177,7 @@ export class SimpleIcalExportSettingTab extends PluginSettingTab {
 						new DeleteCalendarConfirmModal(this.app, calendar.name, async () => {
 							this.plugin.deleteCalendarSettings(calendar.id);
 							await this.plugin.saveSettings();
-							this.display();
+							this.refresh();
 						}).open();
 					});
 				button.buttonEl.toggle(this.plugin.settings.calendars.length > 1);
@@ -200,7 +257,7 @@ export class SimpleIcalExportSettingTab extends PluginSettingTab {
 				.onChange(async (value: UpdateIntervalUnit) => {
 					calendar.updateIntervalUnit = value;
 					await this.plugin.saveSettings();
-					this.display();
+					this.refresh();
 				}));
 
 		new Setting(containerEl)
@@ -246,7 +303,7 @@ export class SimpleIcalExportSettingTab extends PluginSettingTab {
 				.onChange(async (value) => {
 					this.plugin.settings.developerMode = value;
 					await this.plugin.saveSettings();
-					this.display();
+					this.refresh();
 				}));
 
 		if (this.plugin.settings.developerMode) {
