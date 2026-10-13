@@ -1,0 +1,145 @@
+.simple-ical-export-plugin-heading {
+	font-size: var(--font-ui-large);
+	margin: 0 0 16px;
+}
+
+.simple-ical-export-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-bottom: 16px;
+}
+
+.simple-ical-export-tab {
+	background: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 6px;
+	color: var(--text-normal);
+	cursor: pointer;
+	font-size: var(--font-ui-small);
+	padding: 6px 10px;
+}
+
+.simple-ical-export-tab:hover,
+.simple-ical-export-tab:focus {
+	background: var(--background-modifier-hover);
+}
+
+.simple-ical-export-tab.is-active {
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+}
+
+.simple-ical-export-add-tab {
+	min-width: 34px;
+}
+
+.simple-ical-export-hide-event-id-property .metadata-property[data-property-key="iCAL-Event-ID"],
+.simple-ical-export-hide-event-id-property .metadata-property[data-property-key="ical-event-id"] {
+	display: none;
+}
+
+.simple-ical-export-section-heading {
+	font-size: var(--font-ui-medium);
+	margin: 24px 0 10px;
+}
+
+.simple-ical-export-developer-action {
+	margin-left: 20px;
+}
+
+.simple-ical-export-setting-block {
+	align-items: stretch;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.simple-ical-export-setting-block .setting-item-info {
+	margin-right: 0;
+	width: 100%;
+}
+
+.simple-ical-export-setting-block .setting-item-control {
+	justify-content: flex-start;
+	width: 100%;
+}
+
+.simple-ical-export-setting-block .setting-item-control > * {
+	max-width: none;
+}
+
+.simple-ical-export-text-input {
+	box-sizing: border-box;
+	flex: 1 1 auto;
+	max-width: 100%;
+	min-width: 0;
+	width: 100% !important;
+}
+
+.simple-ical-export-interval-input {
+	flex: 0 0 76px;
+	width: 76px !important;
+}
+
+.simple-ical-export-interval-setting {
+	align-items: center;
+}
+
+.simple-ical-export-interval-setting .setting-item-control {
+	width: auto;
+}
+
+.simple-ical-export-interval-setting select {
+	flex: 0 0 140px;
+	width: 140px;
+}
+
+.simple-ical-export-update-now-setting {
+	align-items: center;
+	padding-top: 8px;
+}
+
+.simple-ical-export-update-now-setting .setting-item-info {
+	margin-bottom: 0;
+}
+
+.simple-ical-export-delete-calendar-setting {
+	align-items: center;
+}
+
+.simple-ical-export-setting-block:has(button.mod-warning) .setting-item-control {
+	align-items: center;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.simple-ical-export-confirm-modal p {
+	margin-bottom: 16px;
+}
+
+.simple-ical-export-confirm-actions .setting-item {
+	border: 0;
+	padding: 0;
+}
+
+@media (max-width: 640px) {
+	.simple-ical-export-tabs {
+		overflow-x: auto;
+		flex-wrap: nowrap;
+		padding-bottom: 4px;
+	}
+
+	.simple-ical-export-tab {
+		flex: 0 0 auto;
+	}
+
+	.simple-ical-export-text-input {
+		min-width: 0;
+		width: 100% !important;
+	}
+
+	.simple-ical-export-interval-input {
+		flex: 0 0 76px;
+		min-width: 0;
+	}
+}

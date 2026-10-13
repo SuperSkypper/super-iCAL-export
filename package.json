@@ -1,0 +1,46 @@
+{
+	"name": "super-ical-export",
+	"version": "0.0.1",
+	"description": "Export one or more iCalendar feeds from Obsidian frontmatter date properties.",
+	"main": "main.js",
+	"type": "module",
+	"author": "SuperSkypper",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SuperSkypper/super-ical-export.git"
+	},
+	"homepage": "https://github.com/SuperSkypper/super-ical-export",
+	"bugs": {
+		"url": "https://github.com/SuperSkypper/super-ical-export/issues"
+	},
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"version": "node version-bump.mjs && git add manifest.json versions.json",
+		"lint": "eslint ."
+	},
+	"keywords": [
+		"obsidian",
+		"obsidian-plugin",
+		"ical",
+		"ics",
+		"icalendar",
+		"calendar",
+		"frontmatter"
+	],
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^16.11.6",
+		"esbuild": "0.25.5",
+		"eslint-plugin-obsidianmd": "0.1.9",
+		"globals": "14.0.0",
+		"tslib": "2.4.0",
+		"typescript": "^5.8.3",
+		"typescript-eslint": "8.35.1",
+		"@eslint/js": "9.30.1",
+		"jiti": "2.6.1"
+	},
+	"dependencies": {
+		"obsidian": "latest"
+	}
+}
