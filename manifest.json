@@ -1,7 +1,7 @@
 {
 	"id": "super-ical-export",
 	"name": "Super iCAL Export",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"minAppVersion": "1.4.10",
 	"description": "Export one or more iCalendar feeds from frontmatter date properties.",
 	"author": "SuperSkypper",

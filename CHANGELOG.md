@@ -1,3 +1,9 @@
+# Changelog - v0.0.2
+
+## Technical updates
+- Added `getSettingDefinitions()` to the settings tab so the settings appear in the Obsidian 1.13+ settings search.
+- Kept `display()` as the fallback for older Obsidian versions, and shared the row builders between both paths so the UI stays identical everywhere and `minAppVersion` remains `1.4.10`.
+
 # Changelog - v0.0.1
 
 ## New features & improvements
