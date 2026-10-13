@@ -404,8 +404,8 @@ export default class SimpleIcalExportPlugin extends Plugin {
 	}
 
 	private getFrontmatterValue(file: TFile, propertyName: string): unknown {
-		const frontmatter = this.app.metadataCache.getFileCache(file)?.frontmatter;
-		return (frontmatter as Record<string, unknown> | undefined)?.[propertyName];
+		const frontmatter: Record<string, unknown> | undefined = this.app.metadataCache.getFileCache(file)?.frontmatter;
+		return frontmatter?.[propertyName];
 	}
 
 	private createUniqueRandomId(usedEventIds: Set<string>): string {
