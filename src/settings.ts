@@ -103,7 +103,7 @@ export class SimpleIcalExportSettingTab extends PluginSettingTab {
 	private renderCalendarSettings(containerEl: HTMLElement, calendar: IcalCalendarSettings): void {
 		new Setting(containerEl)
 			.setName('Calendar name')
-			.then((setting) => setting.settingEl.addClass('simple-ical-export-setting-block'))
+			.then((setting) => setting.settingEl.addClasses(['simple-ical-export-setting-block', 'simple-ical-export-delete-calendar-setting']))
 			.addText(text => text
 				.setPlaceholder('Calendar 1')
 				.setValue(calendar.name)

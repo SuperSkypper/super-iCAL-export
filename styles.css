@@ -68,17 +68,17 @@
 	max-width: none;
 }
 
-.simple-ical-export-text-input {
+.setting-item-control input.simple-ical-export-text-input {
 	box-sizing: border-box;
 	flex: 1 1 auto;
 	max-width: 100%;
 	min-width: 0;
-	width: 100% !important;
+	width: 100%;
 }
 
-.simple-ical-export-interval-input {
+.setting-item-control input.simple-ical-export-interval-input {
 	flex: 0 0 76px;
-	width: 76px !important;
+	width: 76px;
 }
 
 .simple-ical-export-interval-setting {
@@ -107,7 +107,7 @@
 	align-items: center;
 }
 
-.simple-ical-export-setting-block:has(button.mod-warning) .setting-item-control {
+.simple-ical-export-setting-block.simple-ical-export-delete-calendar-setting .setting-item-control {
 	align-items: center;
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) auto;
@@ -133,12 +133,7 @@
 		flex: 0 0 auto;
 	}
 
-	.simple-ical-export-text-input {
-		min-width: 0;
-		width: 100% !important;
-	}
-
-	.simple-ical-export-interval-input {
+	.setting-item-control input.simple-ical-export-interval-input {
 		flex: 0 0 76px;
 		min-width: 0;
 	}
