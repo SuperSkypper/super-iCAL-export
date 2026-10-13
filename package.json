@@ -2,7 +2,6 @@
 	"name": "super-ical-export",
 	"version": "0.0.1",
 	"description": "Export one or more iCalendar feeds from Obsidian frontmatter date properties.",
-	"main": "main.js",
 	"type": "module",
 	"author": "SuperSkypper",
 	"repository": {
