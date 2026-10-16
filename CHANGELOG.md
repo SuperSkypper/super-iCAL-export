@@ -1,3 +1,8 @@
+# Changelog - v0.0.3
+
+## Fixes
+- Restored the settings layout that version 0.0.2 broke on Obsidian 1.13.0 and later. The declarative settings added in 0.0.2 rendered the calendar and general sections inside a single settings row, which squeezed the fields into narrow columns and wrapped every label. The tab renders its sections the same way on every Obsidian version again.
+
 # Changelog - v0.0.2
 
 ## Technical updates

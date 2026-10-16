@@ -1,6 +1,6 @@
 {
 	"name": "super-ical-export",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Export one or more iCalendar feeds from frontmatter date properties.",
 	"type": "module",
 	"author": "SuperSkypper",
@@ -40,7 +40,7 @@
 		"typescript-eslint": "8.35.1"
 	},
 	"dependencies": {
-		"obsidian": "latest"
+		"obsidian": "^1.14.4"
 	},
 	"overrides": {
 		"moment": "^2.31.0"
